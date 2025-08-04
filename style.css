@@ -1,0 +1,125 @@
+/* Variáveis de cores */
+:root {
+    --card-front-color: #f0f0f0;
+    --card-back-color: #e0e0e0;
+    --text-color: #333;
+  }
+  
+  /* Configuração de layout da seção */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+  
+  /* Container dos cartões */
+  .cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+  }
+  
+  /* Cartão individual */
+  .cartao {
+    width: 200px;
+    height: 300px;
+    perspective: 1000px; /* Para efeito 3D */
+  }
+  
+  /* Conteúdo que será rotacionado */
+  .cartao__conteudo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Mantém a perspectiva 3D durante a rotação */
+    transition: transform 300ms ease-in-out; /* Animação suave da rotação */
+  }
+  
+  /* Frente e verso do cartão */
+  .cartao__frente,
+  .cartao__verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o lado que está "virado para trás" */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Frente */
+  .cartao__frente {
+    background-color: var(--card-front-color);
+    color: var(--text-color);
+  }
+  
+  /* Verso */
+  .cartao__verso {
+    background-color: var(--card-back-color);
+    color: var(--text-color);
+    transform: rotateY(180deg); /* Começa rotacionado para ficar oculto atrás */
+    text-align: center;
+  }
+  
+  /* Efeito de rotação ao passar o mouse */
+  .cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+  }
+  
+  /* Estilo da categoria (h3) */
+  .cartao__categoria {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    align-self: flex-start; /* Para alinhar à esquerda */
+  }
+  
+  /* Estilo da pergunta */
+  .cartao__pergunta {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  /* Estilo da resposta */
+  .cartao__resposta {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  /* Centraliza pergunta e resposta verticalmente */
+  .cartao_conteudo_pergunta,
+  .cartao_conteudo_resposta {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Para o verso (resposta), rotacionar para corrigir a inversão */
+  .cartao_conteudo_resposta {
+    transform: rotateY(180deg);
+  }
+  
+  /* Ajuste da margem superior do texto */
+  .cartao__conteudo p {
+    margin-top: 4rem; /* Espaçamento para afastar o texto do topo */
+    padding: 0; 
+    text-align: center;
+  }
