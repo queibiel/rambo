@@ -130,3 +130,14 @@
     background-repeat: no-repeat;
     background-attachment: fixed; /* Isso mantém a imagem fixa enquanto a página rola */
 }
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+}
