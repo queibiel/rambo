@@ -123,3 +123,10 @@
     padding: 0; 
     text-align: center;
   }
+
+  body {
+    background-image: url('jujutsu-kaisen-filme.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Isso mantém a imagem fixa enquanto a página rola */
+}
